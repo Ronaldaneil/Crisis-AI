@@ -6,6 +6,7 @@ from app.complexity import calculate_complexity
 from app.router import select_model
 from app.budget import check_budget
 from app.otari import ask_otari
+from app.shelter import nearest_shelter
 
 app = FastAPI(
     title="Crisis AI Backend",
@@ -55,13 +56,19 @@ def assist(request: AssistRequest):
             "remaining_budget": budget["remaining_budget"]
         }
 
-    # Step 5: Ask Otari
+    # Step 5: Find nearest shelter
+    shelter = nearest_shelter(
+        request.latitude,
+        request.longitude
+    )
+
+    # Step 6: Ask Otari
     ai_response = ask_otari(
         request.prompt,
         routing["model"]
     )
 
-    # Step 6: Return response
+    # Step 7: Return response
     return {
         "status": "accepted",
         "complexity": complexity,
@@ -69,6 +76,7 @@ def assist(request: AssistRequest):
         "routing_reason": routing["reason"],
         "estimated_cost": routing["estimated_cost"],
         "remaining_budget": budget["remaining_budget"],
+        "shelter": shelter,
         "ai_response": ai_response,
         "latitude": request.latitude,
         "longitude": request.longitude

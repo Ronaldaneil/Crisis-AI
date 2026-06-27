@@ -62,13 +62,38 @@ def assist(request: AssistRequest):
         request.longitude
     )
 
-    # Step 6: Ask Otari
+    # Step 6: Build contextual prompt
+    context_prompt = f"""
+You are Crisis AI, an intelligent disaster response assistant.
+
+User Location:
+Latitude: {request.latitude}
+Longitude: {request.longitude}
+
+Nearest Shelter:
+{shelter["name"]}
+
+Distance:
+{shelter["distance_km"]} km
+
+User Request:
+{request.prompt}
+
+Instructions:
+1. Respond as a disaster response expert.
+2. Mention the nearest shelter by name.
+3. Mention its distance.
+4. Give practical safety advice.
+5. Keep the response concise and helpful.
+"""
+
+    # Step 7: Ask Otari
     ai_response = ask_otari(
-        request.prompt,
+        context_prompt,
         routing["model"]
     )
 
-    # Step 7: Return response
+    # Step 8: Return response
     return {
         "status": "accepted",
         "complexity": complexity,

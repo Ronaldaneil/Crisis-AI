@@ -1,0 +1,414 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+  --primary: #dc2626;
+  --primary-dark: #b91c1c;
+  --blue: #2563eb;
+  --blue-dark: #1d4ed8;
+
+  --background: #f8fafc;
+  --card: rgba(255, 255, 255, 0.88);
+
+  --text: #111827;
+  --secondary: #6b7280;
+
+  --shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+  color: var(--text);
+}
+
+.app {
+  width: min(92%, 980px);
+  margin: auto;
+  padding: 60px 0;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.logo {
+  width: 90px;
+  height: 90px;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #ef4444,
+    #dc2626
+  );
+
+  color: white;
+
+  box-shadow: 0 15px 40px rgba(220, 38, 38, .25);
+}
+
+.hero h1 {
+  margin-top: 28px;
+
+  font-size: 58px;
+
+  font-weight: 800;
+
+  letter-spacing: -1.8px;
+}
+
+.hero p {
+  margin-top: 14px;
+
+  color: var(--secondary);
+
+  font-size: 18px;
+
+  font-weight: 500;
+}
+
+/* ---------------- INPUT CARD ---------------- */
+
+.inputCard {
+  backdrop-filter: blur(20px);
+
+  background: var(--card);
+
+  border: 1px solid rgba(255,255,255,.5);
+
+  border-radius: 28px;
+
+  padding: 35px;
+
+  box-shadow: var(--shadow);
+
+  transition: .3s;
+}
+
+.inputCard:hover {
+
+  transform: translateY(-2px);
+
+}
+
+.inputCard label {
+
+  display:block;
+
+  margin-bottom:18px;
+
+  font-size:18px;
+
+  font-weight:600;
+}
+
+textarea {
+
+  width:100%;
+
+  min-height:180px;
+
+  resize:none;
+
+  border:none;
+
+  outline:none;
+
+  padding:22px;
+
+  border-radius:18px;
+
+  background:#F3F4F6;
+
+  font-size:16px;
+
+  transition:.3s;
+}
+
+textarea:focus{
+
+  background:white;
+
+  box-shadow:0 0 0 2px rgba(220,38,38,.15);
+}
+
+/* ---------------- BUTTON ---------------- */
+
+button{
+
+  width:100%;
+
+  margin-top:25px;
+
+  border:none;
+
+  border-radius:18px;
+
+  padding:18px;
+
+  cursor:pointer;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:10px;
+
+  background:linear-gradient(
+  135deg,
+  #ef4444,
+  #dc2626
+  );
+
+  color:white;
+
+  font-size:17px;
+
+  font-weight:600;
+
+  transition:.25s;
+}
+
+button:hover{
+
+  transform:translateY(-3px);
+
+  box-shadow:0 15px 30px rgba(220,38,38,.22);
+}
+
+/* ---------------- CARD ---------------- */
+
+.card{
+
+  margin-top:30px;
+
+  padding:30px;
+
+  background:var(--card);
+
+  backdrop-filter:blur(18px);
+
+  border-radius:26px;
+
+  border:1px solid rgba(255,255,255,.5);
+
+  box-shadow:var(--shadow);
+
+  animation:fade .5s ease;
+}
+
+.cardTitle{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  margin-bottom:20px;
+}
+
+.cardTitle svg{
+
+  color:var(--primary);
+}
+
+.cardTitle h2{
+
+  font-size:23px;
+
+  font-weight:700;
+}
+
+.card p{
+
+  color:#374151;
+
+  line-height:1.9;
+}
+
+/* ---------------- FACILITY ---------------- */
+
+.facility{
+
+  margin-top:15px;
+}
+
+.facility h3{
+
+  font-size:26px;
+
+  font-weight:700;
+}
+
+.facility span{
+
+  display:block;
+
+  margin-top:8px;
+
+  color:var(--secondary);
+
+  font-weight:500;
+}
+
+/* ---------------- NAV BUTTON ---------------- */
+
+.navButton{
+
+  margin-top:28px;
+
+  background:linear-gradient(
+  135deg,
+  #3b82f6,
+  #2563eb
+  );
+}
+
+.navButton:hover{
+
+  box-shadow:0 15px 30px rgba(37,99,235,.20);
+}
+
+/* ---------------- BADGES ---------------- */
+
+.badge{
+
+  display:inline-block;
+
+  margin-top:12px;
+
+  padding:8px 14px;
+
+  border-radius:100px;
+
+  background:#fee2e2;
+
+  color:#b91c1c;
+
+  font-size:13px;
+
+  font-weight:600;
+}
+
+/* ---------------- SCROLLBAR ---------------- */
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#d1d5db;
+
+border-radius:100px;
+
+}
+
+/* ---------------- ANIMATION ---------------- */
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media(max-width:900px){
+
+.hero h1{
+
+font-size:46px;
+
+}
+
+.inputCard{
+
+padding:28px;
+
+}
+
+.card{
+
+padding:24px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.app{
+
+padding:35px 0;
+
+}
+
+.hero h1{
+
+font-size:38px;
+
+}
+
+.hero p{
+
+font-size:15px;
+
+}
+
+.logo{
+
+width:75px;
+height:75px;
+
+}
+
+textarea{
+
+min-height:150px;
+
+}
+
+button{
+
+font-size:15px;
+
+padding:16px;
+
+}
+
+}
